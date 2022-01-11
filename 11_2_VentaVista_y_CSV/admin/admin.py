@@ -182,17 +182,6 @@ class ProductoPopup(Popup):
 		else:
 			validado['nombre']=producto_nombre.lower()
 
-		if not producto_cantidad:
-			alert1+='Cantidad. '
-			validado['cantidad']=False
-		else:
-			try:
-				numeric=int(producto_cantidad)
-				validado['cantidad']=producto_cantidad
-			except:
-				alert2+='Cantidad no válida. '
-				validado['cantidad']=False
-
 		if not producto_precio:
 			alert1+='Precio. '
 			validado['precio']=False
@@ -203,6 +192,17 @@ class ProductoPopup(Popup):
 			except:
 				alert2+='Precio no válido. '
 				validado['precio']=False
+			
+		if not producto_cantidad:
+			alert1+='Cantidad. '
+			validado['cantidad']=False
+		else:
+			try:
+				numeric=int(producto_cantidad)
+				validado['cantidad']=producto_cantidad
+			except:
+				alert2+='Cantidad no válida. '
+				validado['cantidad']=False
 
 		valores=list(validado.values())
 
