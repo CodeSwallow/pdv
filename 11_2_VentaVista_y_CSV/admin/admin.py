@@ -15,6 +15,8 @@ from kivy.lang import Builder
 from sqlqueries import QueriesSQLite
 from datetime import datetime, timedelta
 import csv
+from pathlib import Path
+import os
 
 Builder.load_file('admin/admin.kv')
 
@@ -447,7 +449,15 @@ class VistaVentas(Screen):
 		connection=QueriesSQLite.create_connection("pdvDB.sqlite")
 		select_item_query=" SELECT nombre FROM productos WHERE codigo=? "
 		if self.ids.ventas_rv.data:
-			csv_nombre="ventas_csv/"+self.ids.date_id.text+".csv"
+			path = Path(__file__).absolute().parent
+
+			csv_nombre = path.__str__() + '\\ventas_csv\\'
+			isExist = os.path.exists(csv_nombre)
+			if not isExist:
+				os.makedirs(csv_nombre)
+				
+			csv_nombre += self.ids.date_id.text+'.csv'
+			
 			productos_csv=[]
 			total=0
 
