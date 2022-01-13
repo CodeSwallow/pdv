@@ -1,7 +1,7 @@
 # pdv
 Python/Kivy sistema de punto de venta
 
-# Crear Ejecutable
+# Crear Ejecutable en Windows
 
 ### PyInstaller 3.1+ 
 ```
