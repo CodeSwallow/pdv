@@ -42,6 +42,15 @@ coll = COLLECT(exe, Tree('camino-a-projecto\\pdv\\'),
                name='pdv_nombre')
 ```
 
+Si no quieres que la consola (cmd) aparezca cuando ejecutes la app, cambia console de True a False
+```
+exe = EXE(pyz,
+          # otras líneas,
+          console=False,
+          # otras líneas)
+```
+
+
 ### Ejecutar siguiente instrucción
 ```
 python -m PyInstaller pdv_nombre.spec
